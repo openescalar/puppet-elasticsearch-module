@@ -1,0 +1,38 @@
+
+cluster.name: na1-logstash-elasticsearch
+
+#lnode.name: HOSTNAME
+
+node.master: true
+
+node.data: true
+
+node.max_local_storage_nodes: 1
+
+index.number_of_shards: 5
+
+index.number_of_replicas: 1
+
+
+# Make sure that the ES_MIN_MEM and ES_MAX_MEM environment variables are set
+# to the same value, and that the machine has enough memory to allocate
+# for ElasticSearch, leaving enough memory for the operating system itself.
+# You should also make sure that the ElasticSearch process is allowed to lock
+# the memory, eg. by using `ulimit -l unlimited`.
+# bootstrap.mlockall: true
+
+# network.host: 192.168.0.1
+
+transport.tcp.compress: true
+
+#http.port: 9200
+
+gateway.expected_nodes: 2
+
+
+discovery.zen.minimum_master_nodes: 2
+
+discovery.zen.ping.multicast.enabled: false
+
+#discovery.zen.ping.unicast.hosts: ["infraprodlogstash01.bio-iad.ea.com","infraprodlogstash01.bio-iad.ea.com"]
+discovery.zen.ping.unicast.hosts: ["client1","client2"]

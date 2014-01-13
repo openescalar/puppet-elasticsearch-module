@@ -1,0 +1,32 @@
+
+cluster.name: <%= cluster_name %>
+
+node.name: <%= node_name %>
+
+node.master: <%= node_master %>
+
+node.data: <%= node_data %>
+
+node.max_local_storage_nodes: <%= node_max_local_storage_nodes %>
+
+index.number_of_shards: <%= index_number_of_shards %>
+
+index.number_of_replicas: <%= index_number_of_replicas %>
+
+
+# Make sure that the ES_MIN_MEM and ES_MAX_MEM environment variables are set
+# to the same value, and that the machine has enough memory to allocate
+# for ElasticSearch, leaving enough memory for the operating system itself.
+# You should also make sure that the ElasticSearch process is allowed to lock
+# the memory, eg. by using `ulimit -l unlimited`.
+# bootstrap.mlockall: true
+
+network.host: <%= network_host %>
+
+gateway.expected_nodes: 2
+
+discovery.zen.minimum_master_nodes: 2
+
+discovery.zen.ping.multicast.enabled: false
+
+discovery.zen.ping.unicast.hosts: <%= discovery_zen_ping_unicast_hosts %>
